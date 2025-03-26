@@ -1,0 +1,71 @@
+<div class="min-h-screen flex items-center justify-center bg-purple-700 background-animate p-5 relative overflow-hidden">
+  <!-- Decorative elements -->
+  <div class="absolute inset-0 bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-blue-700 via-purple-600 to-purple-700 opacity-90"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-blue-500 via-purple-500 to-purple-800 opacity-80 mix-blend-multiply"></div>
+  
+  <div class="w-full max-w-md rounded-xl shadow-2xl overflow-hidden relative z-10 card-container">
+    <!-- Header Section with glassmorphism -->
+    <div class="py-7 backdrop-blur-xl bg-white/10 border border-white/20 rounded-t-xl shadow-lg relative overflow-hidden">
+      <!-- Subtle highlight effect -->
+      <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-blue-300/70 to-transparent"></div>
+      
+      <div class="relative z-10">
+        <h2 class="text-center text-2xl font-bold text-white">Welcome to Centrix</h2>
+        <p class="text-center text-purple-100 mt-1">Sign in to your account</p>
+      </div>
+    </div>
+    
+    <!-- Login Form -->
+    <div class="px-8 pt-8 pb-10 bg-white">
+      <form (ngSubmit)="onSubmit()" class="space-y-6">
+        <div>
+          <label for="username" class="block text-sm font-medium text-gray-700 mb-1">Username</label>
+          <div class="relative group">
+
+            <input 
+              type="text" 
+              id="username" 
+              name="username" 
+              [(ngModel)]="username" 
+              required
+              placeholder="Enter your username"
+              class="pl-10 pr-3 py-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200">
+          </div>
+        </div>
+        
+        <div>
+          <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+          <div class="relative group">
+
+            <input 
+              type="password" 
+              id="password" 
+              name="password" 
+              [(ngModel)]="password" 
+              required
+              placeholder="Enter your password"
+              class="pl-10 pr-3 py-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200">
+          </div>
+        </div>
+        
+        <div class="flex items-center justify-between">
+          <a href="#" class="text-sm font-medium text-purple-600 hover:text-blue-500 transition-colors duration-200">Forgot password?</a>
+        </div>
+        
+        <!-- Sign in button -->
+        <button 
+          type="submit" 
+          class="login-btn w-full flex justify-center items-center py-3 px-4 border-0 rounded-lg shadow-lg text-base font-semibold text-white transform transition-all duration-200 hover:translate-y-[-2px] hover:shadow-xl">
+          Sign in
+        </button>
+      </form>
+      
+      <div class="mt-8 text-center">
+        <p class="text-sm text-gray-600">
+          Don't have an account? 
+          <a href="#" class="font-medium text-purple-600 hover:text-blue-500 transition-colors duration-200">Sign up</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

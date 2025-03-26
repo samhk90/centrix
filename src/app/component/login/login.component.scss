@@ -1,0 +1,67 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+  }
+  
+  .login-card {
+    width: 350px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    color: #333;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #555;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    display: flex;
+      align-items: center;
+      justify-content: center;
+  
+  }
+  input::placeholder{
+      margin-left:50px ;
+  }
+  
+  .login-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .login-button:hover {
+    background-color: #3367d6;
+  }
+  
+  /* Custom styles that might not be covered by Tailwind */
+  /* Most styling is now handled by Tailwind classes in the HTML */
+  

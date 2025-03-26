@@ -1,0 +1,34 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  backface-visibility: hidden;
+}
+
+html, body {
+  height: 100%;
+  font-family: sans-serif;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Ensure no default browser styling interferes with our gradients */
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+}
