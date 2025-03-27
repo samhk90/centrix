@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,13 +13,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 export class LoginComponent {
   username: string = '';
   password: string = '';
-  rememberMe: boolean = false;
+
+  constructor(private router: Router) {}
 
   onSubmit() {
     console.log('Login attempt with:', { 
       username: this.username,
-      password: '******',
-      rememberMe: this.rememberMe
+      password: this.password,
     });
+    this.router.navigate(['/home']);
   }
 }
