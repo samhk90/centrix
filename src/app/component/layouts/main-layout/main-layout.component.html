@@ -1,0 +1,51 @@
+<div class="flex h-screen bg-gray-50 dark:bg-gray-900">
+  <!-- Sidebar Component -->
+  <app-sidebar class="h-full"></app-sidebar>
+  
+  <!-- Main Content Area -->
+  <div class="flex-1 flex flex-col overflow-hidden">
+    <!-- Top Header -->
+    <header class="bg-blue-100 dark:bg-gray-800 shadow-lg z-10">
+      <div class="p-4 flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+          <h1 class="text-xl font-semibold  text-gray-800 dark:text-white">{{ pageTitle }}</h1>
+        </div>
+        
+        <div class="flex items-center space-x-4">
+          <!-- Notification Icon -->
+          <button class="p-1 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+            </svg>
+          </button>
+          
+          <!-- Profile Dropdown Toggle -->
+          <div class="relative">
+            <button (click)="toggleProfileMenu()" class="flex items-center space-x-2 focus:outline-none">
+              <img class="h-8 w-8 rounded-full object-cover border-2 border-blue-500" 
+                src="/assets/avatar.jpg"
+                onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'%23e5e7eb\' stroke=\'%239ca3af\' stroke-width=\'1\' stroke-linecap=\'round\' stroke-linejoin=\'round\'%3E%3Cpath d=\'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\'%3E%3C/path%3E%3Ccircle cx=\'12\' cy=\'7\' r=\'4\'%3E%3C/circle%3E%3C/svg%3E';"
+                alt="User profile">
+              <span class="hidden md:block text-sm font-medium text-gray-700 dark:text-gray-300">User Name</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </button>
+            
+            <!-- Profile Dropdown Menu -->
+            <div *ngIf="showProfileMenu" class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 z-50 border border-gray-200 dark:border-gray-700">
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">Your Profile</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">Settings</a>
+              <a (click)="logout()" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">Sign out</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    
+    <!-- Content area -->
+    <main class="flex-1 overflow-auto p-5 bg-gray-50 dark:bg-gray-900">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

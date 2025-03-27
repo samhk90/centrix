@@ -1,22 +1,28 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
   standalone: true,
-  imports: [RouterOutlet],
-  template: `
-    <div class="app-container">
-      <router-outlet></router-outlet>
-    </div>
-  `,
-  styles: [`
-    .app-container {
-      width: 100%;
-      height: 100%;
-    }
-  `]
+  imports: [RouterModule, CommonModule]
 })
-export class AppComponent {
-  title = 'centrix';
+export class AppComponent implements OnInit {
+  title = 'Centrix';
+  
+  constructor() {}
+  
+  ngOnInit() {
+    // Any global initialization can go here
+    this.initializeApp();
+  }
+  
+  private initializeApp() {
+
+    
+    // Other global app initialization
+    console.log('Centrix application initialized');
+  }
 }

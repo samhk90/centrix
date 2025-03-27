@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
+  constructor() { }
 
+  ngOnInit(): void {
+    // Here you would typically fetch dashboard data from a service
+  }
 }

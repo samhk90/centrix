@@ -1,0 +1,109 @@
+.sidebar-container {
+  position: relative;
+  height: 100%;
+  
+  &.expanded {
+    .sidebar-overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+}
+
+/* Add smoother transitions */
+a, button {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Enhanced hover effects */
+nav ul li a {
+  position: relative;
+  overflow: hidden;
+  
+  &:hover svg {
+    transform: translateX(2px) scale(1.1);
+  }
+  
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background: linear-gradient(to right, #0ea5e9, #7c3aed);
+    transition: width 0.3s ease;
+  }
+  
+  &:hover:before {
+    width: 100%;
+  }
+  
+  &.active {
+    transform: translateX(2px);
+  }
+}
+
+/* Dark theme specific adjustments */
+.text-gray-300 {
+  color: #d1d5db;
+}
+
+.text-blue-400 {
+  color: #60a5fa;
+}
+
+/* Custom scrollbar for the nav */
+nav::-webkit-scrollbar {
+  width: 3px;
+}
+
+nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+nav::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.3);
+  border-radius: 10px;
+}
+
+nav::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.5);
+}
+
+/* Tooltip animations */
+.group:hover .group-hover\:scale-100 {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.scale-0 {
+  opacity: 0;
+  transform: scale(0);
+}
+
+/* Media queries for better responsiveness */
+@media (max-width: 768px) {
+  aside {
+    position: fixed;
+    z-index: 40;
+    height: 100vh;
+    
+    &.expanded {
+      width: 250px !important;
+    }
+  }
+  
+  /* Overlay when sidebar is open on mobile */
+  .sidebar-container.expanded:after {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 30;
+    pointer-events: auto;
+  }
+}
