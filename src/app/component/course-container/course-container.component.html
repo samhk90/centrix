@@ -1,0 +1,253 @@
+<div class="course-container p-6">
+  <!-- Filter Section -->
+  <div class="filter-tabs mb-8">
+    <div class="flex flex-wrap items-center justify-between mb-4">
+      <h2 class="text-2xl font-bold text-gray-800 dark:text-white">Courses</h2>
+      
+      <div class="flex items-center space-x-2 mt-4 sm:mt-0">
+        <div class="relative">
+          <input type="text" placeholder="Search courses..." 
+                 class="pl-10 pr-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full">
+          <div class="absolute left-3 top-1/2 transform -translate-y-1/2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+        </div>
+        
+   
+      </div>
+    </div>
+    
+    <div class="flex border-b border-gray-200 dark:border-gray-700 mb-6">
+      <button class="filter-tab-active relative py-3 px-6 text-blue-600 dark:text-blue-400 font-medium">
+        All
+        <span class="absolute bottom-0 left-0 w-full h-1 bg-blue-500 rounded-t-md"></span>
+      </button>
+      <button class="relative py-3 px-6 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 font-medium">
+        Assigned
+      </button>
+      <button class="relative py-3 px-6 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 font-medium">
+        Career Oriented
+      </button>
+    </div>
+  </div>
+  
+  <!-- Courses Grid -->
+  <div class="grid grid-cols-1 m-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    <!-- Course Card 1 -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+      <div class="relative">
+        <img src="https://images.unsplash.com/photo-1605379399642-870262d3d051?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Course" class="w-full h-48 object-cover">
+        <div class="absolute top-0 left-0 m-3">
+          <span class="px-2 py-1 bg-blue-500 text-white text-xs font-bold rounded-md">POPULAR</span>
+        </div>
+        <div class="absolute top-0 right-0 m-3">
+          <span class="p-1 bg-white dark:bg-gray-900 rounded-full shadow-md">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600 dark:text-gray-300 hover:text-red-500 dark:hover:text-red-500 transition-colors cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+          </span>
+        </div>
+      </div>
+      
+      <div class="p-5">
+        <div class="flex items-center mb-3">
+          <div class="bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400 text-xs font-semibold px-2 py-1 rounded">Beginner</div>
+          <div class="flex items-center ml-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            <span class="text-sm text-gray-600 dark:text-gray-400 ml-1">4.8</span>
+          </div>
+        </div>
+        
+        <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-1">Web Development Fundamentals</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Learn the core concepts of HTML, CSS, and JavaScript to build responsive websites.</p>
+        
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Instructor" class="h-8 w-8 rounded-full object-cover">
+            <span class="text-xs text-gray-600 dark:text-gray-400 ml-2">Dr. Michael Brown</span>
+          </div>
+          <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="text-xs text-gray-500 dark:text-gray-400 ml-1">8h 15m</span>
+          </div>
+        </div>
+        
+        <div class="flex items-center justify-between mt-4">
+          <button routerLink="/courseinfo" class="bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-2 rounded-lg transition-colors">View Course</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Course Card 2 -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+      <div class="relative">
+        <img src="https://images.unsplash.com/photo-1551033406-611cf9a28f67?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Course" class="w-full h-48 object-cover">
+        <div class="absolute top-0 left-0 m-3">
+          <span class="px-2 py-1 bg-purple-500 text-white text-xs font-bold rounded-md">FEATURED</span>
+        </div>
+        <div class="absolute top-0 right-0 m-3">
+          <span class="p-1 bg-white dark:bg-gray-900 rounded-full shadow-md">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500 dark:text-red-400 transition-colors cursor-pointer" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+          </span>
+        </div>
+      </div>
+      
+      <div class="p-5">
+        <div class="flex items-center mb-3">
+          <div class="bg-yellow-100 dark:bg-yellow-900 text-yellow-600 dark:text-yellow-400 text-xs font-semibold px-2 py-1 rounded">Intermediate</div>
+          <div class="flex items-center ml-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            <span class="text-sm text-gray-600 dark:text-gray-400 ml-1">4.9</span>
+          </div>
+        </div>
+        
+        <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-1">Data Science with Python</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Master data analysis, visualization and machine learning using Python and pandas.</p>
+        
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Instructor" class="h-8 w-8 rounded-full object-cover">
+            <span class="text-xs text-gray-600 dark:text-gray-400 ml-2">Dr. Sarah Johnson</span>
+          </div>
+          <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="text-xs text-gray-500 dark:text-gray-400 ml-1">12h 30m</span>
+          </div>
+        </div>
+        
+        <div class="flex items-center justify-between mt-4">
+          <button routerLink="/courseinfo" class="bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-2 rounded-lg transition-colors">View Course</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Course Card 3 -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+      <div class="relative">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Course" class="w-full h-48 object-cover">
+        <div class="absolute top-0 left-0 m-3">
+          <span class="px-2 py-1 bg-orange-500 text-white text-xs font-bold rounded-md">TRENDING</span>
+        </div>
+        <div class="absolute top-0 right-0 m-3">
+          <span class="p-1 bg-white dark:bg-gray-900 rounded-full shadow-md">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600 dark:text-gray-300 hover:text-red-500 dark:hover:text-red-500 transition-colors cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+          </span>
+        </div>
+      </div>
+      
+      <div class="p-5">
+        <div class="flex items-center mb-3">
+          <div class="bg-red-100 dark:bg-red-900 text-red-600 dark:text-red-400 text-xs font-semibold px-2 py-1 rounded">Advanced</div>
+          <div class="flex items-center ml-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            <span class="text-sm text-gray-600 dark:text-gray-400 ml-1">4.7</span>
+          </div>
+        </div>
+        
+        <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-1">UI/UX Design Masterclass</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Create stunning user interfaces and improve user experience with practical projects.</p>
+        
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Instructor" class="h-8 w-8 rounded-full object-cover">
+            <span class="text-xs text-gray-600 dark:text-gray-400 ml-2">Lisa Chen</span>
+          </div>
+          <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="text-xs text-gray-500 dark:text-gray-400 ml-1">14h 45m</span>
+          </div>
+        </div>
+        
+        <div class="flex items-center justify-between mt-4">
+          <button routerLink="/courseinfo" class="bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-2 rounded-lg transition-colors">View Course</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Course Card 4 -->
+    <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+      <div class="relative">
+        <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Course" class="w-full h-48 object-cover">
+        <div class="absolute top-0 left-0 m-3">
+          <span class="px-2 py-1 bg-teal-500 text-white text-xs font-bold rounded-md">CAREER</span>
+        </div>
+        <div class="absolute top-0 right-0 m-3">
+          <span class="p-1 bg-white dark:bg-gray-900 rounded-full shadow-md">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600 dark:text-gray-300 hover:text-red-500 dark:hover:text-red-500 transition-colors cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+          </span>
+        </div>
+      </div>
+      
+      <div class="p-5">
+        <div class="flex items-center mb-3">
+          <div class="bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 text-xs font-semibold px-2 py-1 rounded">All Levels</div>
+          <div class="flex items-center ml-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            <span class="text-sm text-gray-600 dark:text-gray-400 ml-1">4.6</span>
+          </div>
+        </div>
+        
+        <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-1">Artificial Intelligence Fundamentals</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Understand the core principles of AI, machine learning, and neural networks.</p>
+        
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center">
+            <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="Instructor" class="h-8 w-8 rounded-full object-cover">
+            <span class="text-xs text-gray-600 dark:text-gray-400 ml-2">Prof. James Wilson</span>
+          </div>
+          <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="text-xs text-gray-500 dark:text-gray-400 ml-1">16h 10m</span>
+          </div>
+        </div>
+        
+        <div class="flex items-center justify-between mt-4">
+          <button routerLink="/courseinfo" class="bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-2 rounded-lg transition-colors">View Course</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <div class="mt-10 flex justify-center">
+    <nav class="flex items-center space-x-2">
+      <button class="px-3 py-2 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <button class="px-4 py-2 rounded-md bg-blue-600 text-white">1</button>
+      <button class="px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600">2</button>
+      <button class="px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600">3</button>
+      <button class="px-3 py-2 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </nav>
+  </div>
+</div>
