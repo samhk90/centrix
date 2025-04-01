@@ -4,7 +4,7 @@ import { filter } from 'rxjs/operators';
 import { Title } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { SidebarComponent } from '../../component/sidebar/sidebar.component';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-main-layout',
   templateUrl: './main-layout.component.html',
@@ -13,10 +13,9 @@ import { SidebarComponent } from '../../component/sidebar/sidebar.component';
   imports: [CommonModule, RouterModule, SidebarComponent]
 })
 export class MainLayoutComponent implements OnInit {
-  
+
   pageTitle = 'Dashboard';
-  showProfileMenu = false;
-  
+
   // Title mapping to use when route data is unavailable
   private readonly pageTitleMap: {[key: string]: string} = {
     '/dashboard': 'Dashboard',
@@ -32,7 +31,8 @@ export class MainLayoutComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private titleService: Title,
-    private injector: Injector
+    private injector: Injector,
+    private location: Location
   ) {}
 
   ngOnInit() {
@@ -51,10 +51,11 @@ export class MainLayoutComponent implements OnInit {
       this.router.navigate(['/login']);
     }
   }
-  
-  /**
-   * Updates page title based on current route
-   */
+  showProfileMenu = false;
+  goBack(): void {
+    this.location.back();
+  }
+ 
   private updateTitleFromCurrentRoute(): void {
     // Get current route and extract component
     let route = this.activatedRoute;

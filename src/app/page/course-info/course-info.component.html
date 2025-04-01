@@ -43,18 +43,18 @@
   <!-- Quick Navigation -->
   <div class="border-b border-gray-200 pb-4 mb-8">
     <div class="flex overflow-x-auto space-x-6 pb-2">
-      <a href="#overview" class="text-blue-600 font-medium whitespace-nowrap pb-2 border-b-2 border-blue-600">Overview</a>
-      <a href="#content" class="text-gray-600 hover:text-blue-600 font-medium whitespace-nowrap pb-2 hover:border-b-2 hover:border-blue-600">Course Content</a>
-      <a href="#instructor" class="text-gray-600 hover:text-blue-600 font-medium whitespace-nowrap pb-2 hover:border-b-2 hover:border-blue-600">Instructor</a>
-      <a href="#reviews" class="text-gray-600 hover:text-blue-600 font-medium whitespace-nowrap pb-2 hover:border-b-2 hover:border-blue-600">Reviews</a>
-      <a href="#assessment" class="text-gray-600 hover:text-blue-600 font-medium whitespace-nowrap pb-2 hover:border-b-2 hover:border-blue-600">Assessment</a>
+      <a (click)="scrollToSection('overview')" class="text-blue-600 font-medium whitespace-nowrap pb-2 border-b-2 border-blue-600 cursor-pointer">Overview</a>
+      <a (click)="scrollToSection('content')" class="text-gray-600 hover:text-blue-600 font-medium whitespace-nowrap pb-2 hover:border-b-2 hover:border-blue-600 cursor-pointer">Course Content</a>
+      <!-- <a (click)="scrollToSection('instructor')" class="text-gray-600 hover:text-blue-600 font-medium whitespace-nowrap pb-2 hover:border-b-2 hover:border-blue-600 cursor-pointer">Instructor</a>
+      <a (click)="scrollToSection('reviews')" class="text-gray-600 hover:text-blue-600 font-medium whitespace-nowrap pb-2 hover:border-b-2 hover:border-blue-600 cursor-pointer">Reviews</a> -->
+      <a (click)="scrollToSection('assessment')" class="text-gray-600 hover:text-blue-600 font-medium whitespace-nowrap pb-2 hover:border-b-2 hover:border-blue-600 cursor-pointer">Assessment</a>
     </div>
   </div>
 
   <!-- Course Description and Instructor -->
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
     <!-- Course Description -->
-    <div class="lg:col-span-2">
+    <div class="lg:col-span-2" >
       <div id="overview" class="mb-8">
         <h2 class="text-2xl font-bold mb-4">Course Description</h2>
         <div class="prose max-w-none dark:prose-invert">
@@ -114,6 +114,9 @@
 
           <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg font-semibold mb-4 transition-colors">
             Enroll Now
+          </button>
+          <button (click)="navigateToEnrolledCourse()" class="w-full bg-green-600 hover:bg-green-700 text-white py-3 px-4 rounded-lg font-semibold mb-4 transition-colors">
+            Start Learning
           </button>
           
           <div class="space-y-4">

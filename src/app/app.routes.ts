@@ -6,6 +6,7 @@ import { inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { CoursesPageComponent } from './page/courses-page/courses-page.component';
 import { CourseInfoComponent } from './page/course-info/course-info.component';
+import { EnrolledCoursesComponent } from './component/enrolled-courses/enrolled-courses.component';
 
 // Auth guard function (modern approach with functional guards)
 export const authGuard = () => {
@@ -32,6 +33,7 @@ export const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent, data: { title: 'Dashboard' } },
       { path: 'courses', component: CoursesPageComponent, data: { title: 'Courses' } },
       { path: 'courseinfo', component: CourseInfoComponent, data: { title: 'Course Details' } },
+      {path: 'enrolled-courses', component: EnrolledCoursesComponent, data: { title: 'Enrolled Course' }},
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
   },
