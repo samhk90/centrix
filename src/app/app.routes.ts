@@ -7,6 +7,10 @@ import { Router } from '@angular/router';
 import { CoursesPageComponent } from './page/courses-page/courses-page.component';
 import { CourseInfoComponent } from './page/course-info/course-info.component';
 import { EnrolledCoursesComponent } from './component/enrolled-courses/enrolled-courses.component';
+import { AssessmentComponent } from './page/assessment/assessment.component';
+import { AssessmentInstructionComponent } from './page/assessment-instruction/assessment-instruction.component';
+
+import { ResultsComponent } from './page/results/results.component';
 
 // Auth guard function (modern approach with functional guards)
 export const authGuard = () => {
@@ -32,8 +36,11 @@ export const routes: Routes = [
     children: [
       { path: 'dashboard', component: DashboardComponent, data: { title: 'Dashboard' } },
       { path: 'courses', component: CoursesPageComponent, data: { title: 'Courses' } },
+      {path:'assessment',component:AssessmentComponent, data: { title: 'Assessments' }},
       { path: 'courseinfo', component: CourseInfoComponent, data: { title: 'Course Details' } },
       {path: 'enrolled-courses', component: EnrolledCoursesComponent, data: { title: 'Enrolled Course' }},
+      {path:'instructions',component:AssessmentInstructionComponent, data: { title: 'Assessment Instructions' }},
+      {path:'results',component:ResultsComponent, data: { title: 'Assessment Results' }},
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
   },

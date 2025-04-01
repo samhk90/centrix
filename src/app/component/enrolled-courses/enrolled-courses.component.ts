@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, RouterModule } from '@angular/router';
-
+import { ActivatedRoute, RouterModule,Router } from '@angular/router';
 // Mock data interface for type safety
 interface Artifact {
   type: string;
@@ -52,7 +51,7 @@ export class EnrolledCoursesComponent implements OnInit {
   currentVideo: Topic | null = null;
   allSectionsExpanded: boolean = false;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     // Initialize with mock data
@@ -406,5 +405,9 @@ export class EnrolledCoursesComponent implements OnInit {
       default:
         return 'fa-file-o';
     }
+  }
+  navigateToAssessment(): void {
+
+      this.router.navigate(['/instructions']);
   }
 }

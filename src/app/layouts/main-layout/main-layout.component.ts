@@ -20,7 +20,7 @@ export class MainLayoutComponent implements OnInit {
   private readonly pageTitleMap: {[key: string]: string} = {
     '/dashboard': 'Dashboard',
     '/courses': 'Courses',
-    '/assignments': 'Assessment',
+    '/assessment': 'Assessment',
     '/calendar': 'Leader Board',
     '/roadmaps': 'Roadmaps',
     '/settings': 'Settings',

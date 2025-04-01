@@ -1,0 +1,457 @@
+<div class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+  <!-- Header Section -->
+  <header class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8 flex justify-between items-center">
+      <div>
+        <h1 class="text-2xl font-bold text-gray-900">Assessment Instructions</h1>
+        <p class="text-gray-600 mt-1">Please read all instructions carefully before proceeding</p>
+      </div>
+      <div class="flex items-center space-x-4">
+        <div class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          Time : 45:00
+        </div>
+        <button 
+        [disabled]="!onsentChecked"
+        [ngClass]="{'opacity-50 cursor-not-allowed': !onsentChecked}"
+        class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 flex items-center">
+        Start Assessment
+
+      </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+    <!-- Main content card -->
+    <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
+      <!-- Navigation Tabs -->
+      <div class="flex border-b border-gray-200">
+        <button (click)="activeTab = 'instructions'" 
+          class="px-6 py-4 font-medium text-sm focus:outline-none"
+          [ngClass]="{'text-blue-600 border-b-2 border-blue-600': activeTab === 'instructions', 'text-gray-500 hover:text-gray-700': activeTab !== 'instructions'}">
+          Instructions
+        </button>
+        <button (click)="activeTab = 'overview'" 
+          class="px-6 py-4 font-medium text-sm focus:outline-none"
+          [ngClass]="{'text-blue-600 border-b-2 border-blue-600': activeTab === 'overview', 'text-gray-500 hover:text-gray-700': activeTab !== 'overview'}">
+          Overview
+        </button>
+        <button (click)="activeTab = 'faq'" 
+          class="px-6 py-4 font-medium text-sm focus:outline-none"
+          [ngClass]="{'text-blue-600 border-b-2 border-blue-600': activeTab === 'faq', 'text-gray-500 hover:text-gray-700': activeTab !== 'faq'}">
+          FAQ
+        </button>
+      </div>
+
+      <!-- Instructions Tab Content -->
+      <div class="p-6" *ngIf="activeTab === 'instructions'">
+        <div class="flex items-start mb-6">
+          <div class="flex-shrink-0 bg-blue-100 rounded-full p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div class="ml-4">
+            <h3 class="text-lg font-medium text-gray-900">Important Instructions</h3>
+            <p class="mt-1 text-gray-600">Please review each point carefully before beginning the assessment.</p>
+          </div>
+        </div>
+
+        <!-- Numbered Instructions -->
+        <div class="space-y-4 mb-8">
+          <ol class="list-decimal list-inside space-y-4">
+            <li class="bg-gray-50 rounded-lg p-4 border-l-4 border-blue-500 hover:bg-gray-100 transition-colors duration-200">
+              <span class="font-medium text-gray-900">Time Limit</span>
+              <p class="text-gray-600 pl-5 mt-1">You have 45 minutes to complete this assessment. The timer starts immediately when you click "Start Assessment" and cannot be paused.</p>
+            </li>
+
+            <li class="bg-gray-50 rounded-lg p-4 border-l-4 border-blue-500 hover:bg-gray-100 transition-colors duration-200">
+              <span class="font-medium text-gray-900">Question Format</span>
+              <p class="text-gray-600 pl-5 mt-1">The assessment consists of multiple-choice questions. Read each question thoroughly before answering.</p>
+            </li>
+
+            <li class="bg-gray-50 rounded-lg p-4 border-l-4 border-blue-500 hover:bg-gray-100 transition-colors duration-200">
+              <span class="font-medium text-gray-900">Scoring System</span>
+              <p class="text-gray-600 pl-5 mt-1">Each question is worth 10 points. There is no negative marking for incorrect answers. A minimum score of 70% is required to pass.</p>
+            </li>
+
+            <li class="bg-gray-50 rounded-lg p-4 border-l-4 border-blue-500 hover:bg-gray-100 transition-colors duration-200">
+              <span class="font-medium text-gray-900">Navigation</span>
+              <p class="text-gray-600 pl-5 mt-1">You can navigate between questions using the "Next" and "Previous" buttons or the question navigator panel. You can also flag questions to revisit later.</p>
+            </li>
+
+            <!-- <li class="bg-gray-50 rounded-lg p-4 border-l-4 border-yellow-500 hover:bg-gray-100 transition-colors duration-200">
+              <span class="font-medium text-gray-900">Technical Requirements</span>
+              <div class="flex items-center justify-between pl-5 mt-1">
+                <p class="text-gray-600">Ensure you have a stable internet connection throughout the assessment. Do not refresh the page or close the browser window.</p>
+                <button class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-3 py-1 rounded-md text-sm font-medium transition-colors duration-200">
+                  Run System Check
+                </button>
+              </div>
+            </li> -->
+
+            <li class="bg-gray-50 rounded-lg p-4 border-l-4 border-blue-500 hover:bg-gray-100 transition-colors duration-200">
+              <span class="font-medium text-gray-900">Submission</span>
+              <p class="text-gray-600 pl-5 mt-1">Your answers are automatically saved as you progress. Once you complete all questions, click the "Submit" button to finalize your assessment.</p>
+            </li>
+
+            <li class="bg-gray-50 rounded-lg p-4 border-l-4 border-blue-500 hover:bg-gray-100 transition-colors duration-200">
+              <span class="font-medium text-gray-900">Academic Integrity</span>
+              <p class="text-gray-600 pl-5 mt-1">This assessment must be completed without assistance from others. Any form of cheating will result in disqualification and potential disciplinary action.</p>
+            </li>
+          </ol>
+        </div>
+
+        <!-- Assessment Details -->
+        <div class="bg-blue-50 rounded-lg p-5 mb-6">
+          <h3 class="text-lg font-medium text-blue-900 mb-3">Assessment Details</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <p class="text-gray-700"><span class="font-medium">Date:</span> May 15, 2023</p>
+              </div>
+            </div>
+            <div>
+              <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <p class="text-gray-700"><span class="font-medium">Duration:</span> 45 minutes</p>
+              </div>
+            </div>
+            <div>
+              <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <p class="text-gray-700"><span class="font-medium">Total Questions:</span> 30</p>
+              </div>
+            </div>
+            <div>
+              <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+                <p class="text-gray-700"><span class="font-medium">Passing Score:</span> 70%</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Consent & Agreement -->
+<!-- Consent & Agreement -->
+<div class="mb-8">
+    <div class="flex items-start mb-4">
+      <div class="flex items-center h-5">
+        <input 
+          id="consent" 
+          type="checkbox" 
+          [(ngModel)]="onsentChecked"
+          class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded">
+      </div>
+      <div class="ml-3 text-sm">
+        <label for="consent" class="font-medium text-gray-700">I understand and agree to the assessment terms</label>
+        <p class="text-gray-500">I confirm that I will complete this assessment honestly and without assistance.</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Action Buttons -->
+  <div class="flex justify-between items-center">
+    <button (click)="backtoDashboard()" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
+      Back to Dashboard
+    </button>
+    <button 
+      [disabled]="!onsentChecked"
+      [ngClass]="{'opacity-50 cursor-not-allowed': !onsentChecked}"
+      class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 flex items-center">
+      Start Assessment
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+      </svg>
+    </button>
+  </div>
+      </div>
+
+      <!-- Overview Tab Content -->
+      <div class="p-6" *ngIf="activeTab === 'overview'">
+        <div class="flex items-start mb-6">
+          <div class="flex-shrink-0 bg-green-100 rounded-full p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+            </svg>
+          </div>
+          <div class="ml-4">
+            <h3 class="text-lg font-medium text-gray-900">Assessment Overview</h3>
+            <p class="mt-1 text-gray-600">A comprehensive guide to what this assessment covers and how it's structured.</p>
+          </div>
+        </div>
+
+        <!-- Assessment Topics -->
+        <!-- <div class="mb-8">
+          <h4 class="text-md font-medium text-gray-900 mb-3">Topics Covered</h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <div class="flex items-center">
+                <div class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                  <span class="text-blue-600 font-semibold">1</span>
+                </div>
+                <div>
+                  <h5 class="font-medium">Core Concepts</h5>
+                  <p class="text-sm text-gray-600">Fundamental principles and theories</p>
+                </div>
+              </div>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <div class="flex items-center">
+                <div class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                  <span class="text-blue-600 font-semibold">2</span>
+                </div>
+                <div>
+                  <h5 class="font-medium">Problem Solving</h5>
+                  <p class="text-sm text-gray-600">Analytical and critical thinking skills</p>
+                </div>
+              </div>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <div class="flex items-center">
+                <div class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                  <span class="text-blue-600 font-semibold">3</span>
+                </div>
+                <div>
+                  <h5 class="font-medium">Practical Application</h5>
+                  <p class="text-sm text-gray-600">Real-world scenarios and implementations</p>
+                </div>
+              </div>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <div class="flex items-center">
+                <div class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                  <span class="text-blue-600 font-semibold">4</span>
+                </div>
+                <div>
+                  <h5 class="font-medium">Advanced Techniques</h5>
+                  <p class="text-sm text-gray-600">Specialized methodologies and approaches</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- Assessment Structure -->
+        <div class="mb-8">
+          <h4 class="text-md font-medium text-gray-900 mb-3">Assessment Structure</h4>
+          <div class="overflow-hidden bg-white shadow sm:rounded-md">
+            <ul role="list" class="divide-y divide-gray-200">
+              <li>
+                <div class="px-4 py-4 sm:px-6">
+                  <div class="flex items-center justify-between">
+                    <p class="text-sm font-medium text-blue-600 truncate">Section 1: Multiple Choice</p>
+                    <div class="ml-2 flex-shrink-0 flex">
+                      <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">15 Questions</p>
+                    </div>
+                  </div>
+                  <div class="mt-2 sm:flex sm:justify-between">
+                    <div class="sm:flex">
+                      <p class="flex items-center text-sm text-gray-500">
+                        <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        15 minutes
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <!-- <li>
+                <div class="px-4 py-4 sm:px-6">
+                  <div class="flex items-center justify-between">
+                    <p class="text-sm font-medium text-blue-600 truncate">Section 2: Short Answer</p>
+                    <div class="ml-2 flex-shrink-0 flex">
+                      <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">10 Questions</p>
+                    </div>
+                  </div>
+                  <div class="mt-2 sm:flex sm:justify-between">
+                    <div class="sm:flex">
+                      <p class="flex items-center text-sm text-gray-500">
+                        <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        20 minutes
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="px-4 py-4 sm:px-6">
+                  <div class="flex items-center justify-between">
+                    <p class="text-sm font-medium text-blue-600 truncate">Section 3: Practical Problem</p>
+                    <div class="ml-2 flex-shrink-0 flex">
+                      <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">5 Questions</p>
+                    </div>
+                  </div>
+                  <div class="mt-2 sm:flex sm:justify-between">
+                    <div class="sm:flex">
+                      <p class="flex items-center text-sm text-gray-500">
+                        <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        10 minutes
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </li> -->
+            </ul>
+          </div>
+        </div>
+
+        <!-- Action Buttons (same as in Instructions tab) -->
+        <div class="flex justify-between items-center">
+          <button (click)="backtoDashboard()" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
+            Back to Dashboard
+          </button>
+          <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 flex items-center">
+            Start Assessment
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- FAQ Tab Content -->
+      <div class="p-6" *ngIf="activeTab === 'faq'">
+        <div class="flex items-start mb-6">
+          <div class="flex-shrink-0 bg-purple-100 rounded-full p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div class="ml-4">
+            <h3 class="text-lg font-medium text-gray-900">Frequently Asked Questions</h3>
+            <p class="mt-1 text-gray-600">Find answers to common questions about the assessment.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Accordion -->
+        <div class="space-y-4 mb-8">
+          <div class="border border-gray-200 rounded-lg overflow-hidden">
+            <!-- FAQ Item 1 -->
+            <div class="border-b border-gray-200 last:border-b-0">
+              <button class="w-full px-4 py-3 text-left text-sm font-medium text-gray-900 bg-gray-50 hover:bg-gray-100 focus:outline-none flex justify-between items-center" (click)="toggleFaq(1)">
+                Can I pause the assessment once it has started?
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform transition-transform" [ngClass]="{'rotate-180': openFaqs.includes(1)}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div class="px-4 py-3 bg-white" *ngIf="openFaqs.includes(1)">
+                <p class="text-sm text-gray-600">No, once you start the assessment, the timer will continue to run. You cannot pause or extend the time. Make sure you have allocated sufficient uninterrupted time before starting.</p>
+              </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="border-b border-gray-200 last:border-b-0">
+              <button class="w-full px-4 py-3 text-left text-sm font-medium text-gray-900 bg-gray-50 hover:bg-gray-100 focus:outline-none flex justify-between items-center" (click)="toggleFaq(2)">
+                What happens if I lose my internet connection?
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform transition-transform" [ngClass]="{'rotate-180': openFaqs.includes(2)}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div class="px-4 py-3 bg-white" *ngIf="openFaqs.includes(2)">
+                <p class="text-sm text-gray-600">The system automatically saves your progress as you answer each question. If you lose your connection briefly, you can log back in and continue from where you left off. However, the timer will continue to run.</p>
+              </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="border-b border-gray-200 last:border-b-0">
+              <button class="w-full px-4 py-3 text-left text-sm font-medium text-gray-900 bg-gray-50 hover:bg-gray-100 focus:outline-none flex justify-between items-center" (click)="toggleFaq(3)">
+                Can I use reference materials during the assessment?
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform transition-transform" [ngClass]="{'rotate-180': openFaqs.includes(3)}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div class="px-4 py-3 bg-white" *ngIf="openFaqs.includes(3)">
+                <p class="text-sm text-gray-600">No, this is a closed-book assessment. Using external resources, websites, or notes is not permitted and constitutes a violation of the academic integrity policy.</p>
+              </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="border-b border-gray-200 last:border-b-0">
+              <button class="w-full px-4 py-3 text-left text-sm font-medium text-gray-900 bg-gray-50 hover:bg-gray-100 focus:outline-none flex justify-between items-center" (click)="toggleFaq(4)">
+                How soon will I receive my assessment results?
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform transition-transform" [ngClass]="{'rotate-180': openFaqs.includes(4)}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div class="px-4 py-3 bg-white" *ngIf="openFaqs.includes(4)">
+                <p class="text-sm text-gray-600">Multiple-choice questions are graded automatically, and you will receive those results immediately. Short answer and practical problems will be reviewed by an instructor and typically graded within 48 hours.</p>
+              </div>
+            </div>
+
+            <!-- FAQ Item 5 -->
+            <div class="border-b border-gray-200 last:border-b-0">
+              <button class="w-full px-4 py-3 text-left text-sm font-medium text-gray-900 bg-gray-50 hover:bg-gray-100 focus:outline-none flex justify-between items-center" (click)="toggleFaq(5)">
+                What if I don't finish in the allotted time?
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform transition-transform" [ngClass]="{'rotate-180': openFaqs.includes(5)}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div class="px-4 py-3 bg-white" *ngIf="openFaqs.includes(5)">
+                <p class="text-sm text-gray-600">The assessment will automatically submit when the time expires. You will be graded based on the answers you've provided up to that point. Unanswered questions will be marked as incorrect.</p>
+              </div>
+            </div>
+
+            <!-- FAQ Item 6 -->
+            <div class="border-b border-gray-200 last:border-b-0">
+              <button class="w-full px-4 py-3 text-left text-sm font-medium text-gray-900 bg-gray-50 hover:bg-gray-100 focus:outline-none flex justify-between items-center" (click)="toggleFaq(6)">
+                Can I retake the assessment if I don't pass?
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform transition-transform" [ngClass]="{'rotate-180': openFaqs.includes(6)}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div class="px-4 py-3 bg-white" *ngIf="openFaqs.includes(6)">
+                <p class="text-sm text-gray-600">Yes, you can retake the assessment up to 3 times if you don't achieve a passing score. There is a mandatory 48-hour waiting period between attempts.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Still Have Questions -->
+        <!-- <div class="bg-gray-50 rounded-lg p-5 mb-6">
+          <h4 class="text-md font-medium text-gray-900 mb-2">Still Have Questions?</h4>
+          <p class="text-gray-600 mb-4">If you couldn't find answers to your questions, please contact our support team.</p>
+          <div class="flex space-x-3">
+
+            <button class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              Email Support
+            </button>
+          </div>
+        </div> -->
+
+        <!-- Action Buttons (same as in other tabs) -->
+        <div class="flex justify-between items-center">
+          <button (click)="backtoDashboard()" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
+            Back to Dashboard
+          </button>
+          <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 flex items-center">
+            Start Assessment
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
