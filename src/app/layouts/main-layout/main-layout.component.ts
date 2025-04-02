@@ -27,6 +27,9 @@ export class MainLayoutComponent implements OnInit {
     '/help': 'Help & Support'
   };
 
+  // Add the following property to track mobile menu state
+  mobileMenuOpen = false;
+
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -126,5 +129,14 @@ export class MainLayoutComponent implements OnInit {
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('pageTitle');
     this.router.navigate(['/login']);
+  }
+
+  // Add these methods to control the mobile menu
+  toggleMobileMenu(): void {
+    this.mobileMenuOpen = !this.mobileMenuOpen;
+  }
+
+  closeMobileMenu(): void {
+    this.mobileMenuOpen = false;
   }
 }

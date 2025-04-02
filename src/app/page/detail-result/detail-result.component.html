@@ -1,0 +1,151 @@
+<div class="container mx-auto px-4 py-6 max-w-6xl">
+  <!-- Assessment Summary Card -->
+  <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
+      <div>
+        <h1 class="text-xl md:text-2xl font-bold text-gray-800 dark:text-white">{{ assessment?.title || 'Assessment Results' }}</h1>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Completed on {{ assessment?.completedDate  || 'N/A' }}</p>
+      </div>
+      
+      <div class="flex items-center gap-3">
+        <!-- <div class="hidden md:flex items-center gap-1">
+          <span class="text-sm text-gray-600 dark:text-gray-400">Difficulty:</span>
+          <span class="px-2 py-1 rounded-full text-xs font-medium" 
+                [ngClass]="{
+                  'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200': assessment?.difficulty === 'Easy',
+                  'bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200': assessment?.difficulty === 'Medium',
+                  'bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200': assessment?.difficulty === 'Hard'
+                }">
+            {{ assessment?.difficulty || 'Medium' }}
+          </span>
+        </div> -->
+        
+        <!-- Enhanced Score Circle -->
+        <div class="flex flex-col items-center">
+          <div class="relative h-16 w-16 md:h-20 md:w-20">
+            <svg class="h-16 w-16 md:h-20 md:w-20" viewBox="0 0 36 36">
+              <circle cx="18" cy="18" r="16" fill="none" stroke="#e5e7eb" stroke-width="2.5"></circle>
+              <circle cx="18" cy="18" r="16" fill="none" 
+                [attr.stroke]="getScoreColor()" 
+                stroke-width="2.5" 
+                [attr.stroke-dasharray]="circumference" 
+                [attr.stroke-dashoffset]="circumference - (percentage / 100) * circumference" 
+                transform="rotate(-90 18 18)">
+              </circle>
+            </svg>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/4 -translate-y-1/4 text-center">
+              <div class=" text-lg md:text-xl font-bold" [ngClass]="getScoreTextColor()">{{ percentage }}%</div>
+            </div>
+          </div>
+          <span class="text-xs font-medium text-gray-600 dark:text-gray-400 mt-1">Score</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Performance Summary -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+      <div class="bg-blue-50 dark:bg-blue-900/30 rounded-lg p-4">
+        <div class="text-xs md:text-sm text-blue-500 dark:text-blue-300 font-medium">Total Questions</div>
+        <div class="text-lg md:text-xl font-bold text-gray-800 dark:text-white mt-1">{{ assessment?.totalQuestions || 0 }}</div>
+      </div>
+      
+      <div class="bg-green-50 dark:bg-green-900/30 rounded-lg p-4">
+        <div class="text-xs md:text-sm text-green-500 dark:text-green-300 font-medium">Correct Answers</div>
+        <div class="text-lg md:text-xl font-bold text-gray-800 dark:text-white mt-1">{{ assessment?.correctAnswers || 0 }}</div>
+      </div>
+      
+      <div class="bg-red-50 dark:bg-red-900/30 rounded-lg p-4">
+        <div class="text-xs md:text-sm text-red-500 dark:text-red-300 font-medium">Incorrect Answers</div>
+        <div class="text-lg md:text-xl font-bold text-gray-800 dark:text-white mt-1">{{ assessment?.incorrectAnswers || 0 }}</div>
+      </div>
+      
+      <div class="bg-purple-50 dark:bg-purple-900/30 rounded-lg p-4">
+        <div class="text-xs md:text-sm text-purple-500 dark:text-purple-300 font-medium">Time Taken</div>
+        <div class="text-lg md:text-xl font-bold text-gray-800 dark:text-white mt-1">{{ assessment?.timeTaken || '00:00' }}</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Questions List -->
+  <div>
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-lg md:text-xl font-semibold text-gray-800 dark:text-white">Question Details</h2>
+      
+      <!-- Filter Dropdown -->
+      <div class="relative">
+        <button (click)="toggleFilter()" class="px-3 py-2 text-sm font-medium rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none flex items-center gap-2">
+          <span>Filter: {{ selectedFilter }}</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        
+        <div *ngIf="showFilter" class="absolute right-0 mt-2 w-40 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 z-10 border border-gray-200 dark:border-gray-700">
+          <a (click)="filterQuestions('All')" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">All Questions</a>
+          <a (click)="filterQuestions('Correct')" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">Correct Only</a>
+          <a (click)="filterQuestions('Incorrect')" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">Incorrect Only</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Question Cards -->
+    <div class="space-y-6">
+      <div *ngFor="let question of filteredQuestions; let i = index" 
+           class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden"
+           [ngClass]="{'border-l-4 border-green-500': question.isCorrect, 'border-l-4 border-red-500': !question.isCorrect}">
+        <div class="p-5">
+          <div class="flex justify-between items-start md:items-center flex-col md:flex-row gap-2 mb-4">
+            <h3 class="text-base md:text-lg font-medium text-gray-800 dark:text-white">Question {{ i + 1 }}</h3>
+            <span class="px-3 py-1 rounded-full text-xs font-medium"
+                  [ngClass]="question.isCorrect ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200' : 'bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200'">
+              {{ question.isCorrect ? 'Correct' : 'Incorrect' }}
+            </span>
+          </div>
+          
+          <div class="text-sm md:text-base text-gray-700 dark:text-gray-300 mb-5">{{ question.questionText }}</div>
+          
+          <!-- Answer Options -->
+          <div class="space-y-2 mb-5">
+            <div *ngFor="let option of question.options" 
+                 class="p-3 rounded-md text-sm border"
+                 [ngClass]="{
+                   'bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800': option.isCorrect,
+                   'bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800': option.isSelected && !option.isCorrect,
+                   'bg-gray-50 dark:bg-gray-700/30 border-gray-200 dark:border-gray-700': !option.isSelected && !option.isCorrect
+                 }">
+              <div class="flex items-start gap-3">
+                <div class="flex-shrink-0 mt-0.5">
+                  <div class="h-5 w-5 rounded-full flex items-center justify-center border"
+                       [ngClass]="{
+                         'bg-green-100 dark:bg-green-800 border-green-400 dark:border-green-600': option.isCorrect,
+                         'bg-red-100 dark:bg-red-800 border-red-400 dark:border-red-600': option.isSelected && !option.isCorrect,
+                         'bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600': !option.isSelected && !option.isCorrect
+                       }">
+                    <svg *ngIf="option.isCorrect" class="h-3 w-3 text-green-600 dark:text-green-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <svg *ngIf="option.isSelected && !option.isCorrect" class="h-3 w-3 text-red-600 dark:text-red-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="text-gray-700 dark:text-gray-300">{{ option.text }}</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Explanation part has been removed as requested -->
+        </div>
+      </div>
+    </div>
+    
+    <!-- No Questions Message -->
+    <div *ngIf="filteredQuestions.length === 0" class="py-12 flex flex-col items-center justify-center">
+      <svg class="h-16 w-16 text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <p class="text-gray-500 dark:text-gray-400 text-center">No questions match your filter criteria.</p>
+      <button (click)="filterQuestions('All')" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors">Show All Questions</button>
+    </div>
+  </div>
+</div>

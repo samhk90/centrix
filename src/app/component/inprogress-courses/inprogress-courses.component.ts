@@ -27,6 +27,6 @@ export class InprogressCoursesComponent implements OnInit {
     if (event) {
       event.stopPropagation(); // Prevent the card click event from firing when button is clicked
     }
-    this.router.navigate(['/enrolled-courses']);
+    this.router.navigate(['/courseinfo']);
   }
 }

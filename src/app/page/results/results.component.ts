@@ -185,16 +185,8 @@ export class ResultsComponent implements OnInit {
     );
   }
 
-  viewCourseDetails(courseId: number): void {
-    const course = this.courseResults.find(c => c.id === courseId);
-    if (course) {
-      this.selectedCourse = course;
-      this.resultItems = [...course.results];
-      this.filteredResults = [...this.resultItems];
-      // Reset filters for the questions view
-      this.searchTerm = '';
-      this.currentFilter = 'all';
-    }
+  viewCourseDetails(): void {
+    this.router.navigate(['resultdetail']);
   }
 
   backToCourseList(): void {
