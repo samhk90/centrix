@@ -12,6 +12,8 @@ import { AssessmentInstructionComponent } from './page/assessment-instruction/as
 
 import { ResultsComponent } from './page/results/results.component';
 import { DetailResultComponent } from './page/detail-result/detail-result.component';
+import { LeaderBoardComponent } from './page/leader-board/leader-board.component';
+import { RoadMapsComponent } from './page/road-maps/road-maps.component';
 
 // Auth guard function (modern approach with functional guards)
 export const authGuard = () => {
@@ -43,6 +45,8 @@ export const routes: Routes = [
       {path:'instructions',component:AssessmentInstructionComponent, data: { title: 'Assessment Instructions' }},
       {path:'results',component:ResultsComponent, data: { title: 'Assessment Results' }},
       {path:'resultdetail',component:DetailResultComponent, data: { title: 'Assessment Result Details' }},
+      {path:'roadmaps',component:RoadMapsComponent, data: { title: 'Road Maps' }},
+      {path:'leaderboard',component:LeaderBoardComponent, data: { title: 'Leader Board' }},
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
   },
