@@ -9,7 +9,7 @@ import { CourseInfoComponent } from './page/course-info/course-info.component';
 import { EnrolledCoursesComponent } from './component/enrolled-courses/enrolled-courses.component';
 import { AssessmentComponent } from './page/assessment/assessment.component';
 import { AssessmentInstructionComponent } from './page/assessment-instruction/assessment-instruction.component';
-
+import { ProfileComponent } from './page/profile/profile.component';
 import { ResultsComponent } from './page/results/results.component';
 import { DetailResultComponent } from './page/detail-result/detail-result.component';
 import { LeaderBoardComponent } from './page/leader-board/leader-board.component';
@@ -47,6 +47,7 @@ export const routes: Routes = [
       {path:'resultdetail',component:DetailResultComponent, data: { title: 'Assessment Result Details' }},
       {path:'roadmaps',component:RoadMapsComponent, data: { title: 'Road Maps' }},
       {path:'leaderboard',component:LeaderBoardComponent, data: { title: 'Leader Board' }},
+      {path:'profile',component:ProfileComponent, data: { title: 'Profile' }},
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
   },

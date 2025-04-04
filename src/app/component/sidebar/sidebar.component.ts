@@ -37,4 +37,10 @@ export class SidebarComponent implements OnInit {
       this.mobileHidden = this.collapsed;
     }
   }
+
+  logout() {
+    // Add any logout logic here (clear tokens, session etc.)
+    localStorage.clear(); // or use your auth service method
+    this.router.navigate(['/login']);
+  }
 }

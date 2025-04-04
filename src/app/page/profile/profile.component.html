@@ -1,0 +1,56 @@
+<div class="min-h-screen bg-gray-50 py-8">
+  <!-- Profile Header -->
+  <div class="container mx-auto px-4 mb-8">
+    <div class="flex items-center justify-between">
+      <h1 class="text-3xl font-bold text-gray-900">My Profile</h1>
+
+    </div>
+  </div>
+
+  <!-- Tab Navigation -->
+  <div class="container mx-auto px-4 mb-8">
+    <nav class="flex space-x-4 border-b border-gray-200">
+      <button *ngFor="let tab of tabs" 
+              (click)="activeTab = tab.id"
+              class="px-4 py-2 -mb-px text-sm font-medium transition-all"
+              [ngClass]="{'text-blue-600 border-b-2 border-blue-600': activeTab === tab.id,
+                         'text-gray-500 hover:text-gray-700': activeTab !== tab.id}">
+        {{tab.name}}
+      </button>
+    </nav>
+  </div>
+
+  <!-- Tab Content with Animation -->
+  <div class="container mx-auto px-4">
+    <div class="transition-all duration-300 transform"
+         [ngClass]="{'translate-x-0 opacity-100': true, '-translate-x-4 opacity-0': false}">
+      
+      <!-- Personal Information Tab -->
+      <div *ngIf="activeTab === 'personal'" class="animate-fadeIn">
+        <app-personal-info></app-personal-info>
+      </div>
+
+      <!-- Education Tab -->
+      <div *ngIf="activeTab === 'academic'" class="animate-fadeIn">
+        <app-academic-info></app-academic-info>
+      </div>
+
+      <!-- Experience Tab -->
+      <div *ngIf="activeTab === 'experience'" class="animate-fadeIn">
+        <app-experience-info></app-experience-info>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add these styles to your global styles or component styles -->
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+</style>

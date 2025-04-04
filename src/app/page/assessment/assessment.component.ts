@@ -4,7 +4,7 @@ import { InprogressCoursesComponent } from '../../component/inprogress-courses/i
 
 @Component({
   selector: 'app-assessment',
-  imports: [AssesmentCardComponent,InprogressCoursesComponent],
+  imports: [AssesmentCardComponent],
   templateUrl: './assessment.component.html',
   styleUrl: './assessment.component.scss'
 })

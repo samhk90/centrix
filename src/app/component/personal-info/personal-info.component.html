@@ -1,0 +1,131 @@
+<div class="container mx-auto px-4 py-8">
+  <!-- Modern Header Section with Dark Theme -->
+  <div class="relative bg-gray-900 rounded-3xl p-8 mb-8 overflow-hidden backdrop-blur-xl border border-gray-800">
+    <!-- Animated background patterns -->
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#ffffff25_1px,transparent_1px)] [background-size:16px_16px]"></div>
+      <!-- Ambient light effects -->
+      <div class="absolute top-0 left-1/4 w-1/2 h-1/2 bg-purple-500/10 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 right-1/4 w-1/2 h-1/2 bg-blue-500/10 rounded-full blur-3xl"></div>
+      <!-- Modern grid lines -->
+      <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.2)_1px,transparent_1px)] bg-[size:32px_32px]"></div>
+    </div>
+
+    <div class="relative z-10">
+      <div class="flex flex-col md:flex-row items-center gap-8">
+        <!-- Profile Image with Ring Effect -->
+        <div class="relative group">
+          <div class="absolute -inset-0.5 bg-purple-500 rounded-full blur opacity-50 group-hover:opacity-75 transition duration-300"></div>
+          <div class="relative w-32 h-32 rounded-full  overflow-hidden border-4 border-gray-800/80 bg-black/50 backdrop-blur-sm">
+            <img class="h-full w-full rounded-full object-cover border-2 border-blue-500"
+            src="/assets/avatar.jpg"
+            onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'%23e5e7eb\' stroke=\'%239ca3af\' stroke-width=\'1\' stroke-linecap=\'round\' stroke-linejoin=\'round\'%3E%3Cpath d=\'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\'%3E%3C/path%3E%3Ccircle cx=\'12\' cy=\'7\' r=\'4\'%3E%3C/circle%3E%3C/svg%3E';"
+            alt="User">
+          </div>
+
+        </div>
+
+        <!-- User Info with Solid Colors -->
+        <div class="text-center md:text-left">
+          <h1 class="text-4xl font-bold text-white">{{userInfo.name}}</h1>
+          <p class="text-lg text-gray-400 mt-2">{{userInfo.title}}</p>
+          <!-- Stats with Solid Colors -->
+          <div class="flex gap-8 mt-6">
+            <div class="text-center group cursor-pointer">
+              <div class="text-2xl font-bold text-white group-hover:text-purple-400 transition-colors duration-300">
+                {{userInfo.stats.coursesCompleted}}
+              </div>
+              <div class="text-xs text-gray-500 group-hover:text-purple-400 transition-colors">Courses</div>
+            </div>
+            <div class="text-center group cursor-pointer">
+              <div class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
+                {{userInfo.stats.achievements}}
+              </div>
+              <div class="text-xs text-gray-500 group-hover:text-blue-400 transition-colors">Flags</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- Personal Information -->
+    <div class="md:col-span-2 space-y-6">
+      <div class="bg-white rounded-xl shadow-sm p-6">
+        <div class="flex justify-between items-center mb-6">
+          <h2 class="text-xl font-semibold text-gray-800">Personal Information</h2>
+          <button (click)="toggleEdit()" 
+                  class="text-blue-600 hover:text-blue-700 flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+            </svg>
+            {{isEditing ? 'Save' : 'Edit'}}
+          </button>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Name -->
+          <div class="form-group">
+            <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+            <input type="text" [(ngModel)]="userInfo.name" [readonly]="!isEditing"
+                   class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-blue-500 transition-all"
+                   [ngClass]="{'bg-gray-50': !isEditing, 'border-gray-200': !isEditing, 'border-blue-300': isEditing}">
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+            <input type="email" [(ngModel)]="userInfo.email" [readonly]="!isEditing"
+                   class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-blue-500 transition-all"
+                   [ngClass]="{'bg-gray-50': !isEditing, 'border-gray-200': !isEditing, 'border-blue-300': isEditing}">
+          </div>
+
+          <!-- Phone -->
+          <div class="form-group">
+            <label class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+            <input type="tel" [(ngModel)]="userInfo.phone" [readonly]="!isEditing"
+                   class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-blue-500 transition-all"
+                   [ngClass]="{'bg-gray-50': !isEditing, 'border-gray-200': !isEditing, 'border-blue-300': isEditing}">
+          </div>
+
+          <!-- Location -->
+          <div class="form-group">
+            <label class="block text-sm font-medium text-gray-700 mb-2">Location</label>
+            <input type="text" [(ngModel)]="userInfo.location" [readonly]="!isEditing"
+                   class="w-full px-4 py-2 rounded-lg border focus:ring-2 focus:ring-blue-500 transition-all"
+                   [ngClass]="{'bg-gray-50': !isEditing, 'border-gray-200': !isEditing, 'border-blue-300': isEditing}">
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <!-- Stats & Achievements -->
+    <div class="space-y-6">
+      <div class="bg-white rounded-xl shadow-sm p-6">
+        <h2 class="text-xl font-semibold text-gray-800 mb-6">Stats</h2>
+        <div class="space-y-4">
+          <div class="flex justify-between items-center">
+            <span class="text-gray-600">Courses Completed</span>
+            <span class="font-semibold text-gray-800">{{userInfo.stats.coursesCompleted}}</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-gray-600">Achievements</span>
+            <span class="font-semibold text-gray-800">{{userInfo.stats.achievements}}</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-gray-600">Current Streak</span>
+            <span class="font-semibold text-gray-800">{{userInfo.stats.currentStreak}} days</span>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+

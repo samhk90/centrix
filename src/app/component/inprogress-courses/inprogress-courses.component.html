@@ -1,4 +1,27 @@
-<div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+<!-- Category Selector -->
+<div class="mb-6 flex space-x-4">
+  <button 
+  *ngIf="!isDashboard" 
+    (click)="setActiveCategory('inprogress')"
+    [class]="'px-6 py-2 rounded-lg text-sm font-medium transition-all ' + 
+    (activeCategory === 'inprogress' ? 
+    'bg-blue-500 text-white shadow-lg' : 
+    'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600')">
+    In Progress
+  </button>
+  <button 
+    (click)="setActiveCategory('completed')"
+    *ngIf="!isDashboard" 
+    [class]="'px-6 py-2 rounded-lg text-sm font-medium transition-all ' + 
+    (activeCategory === 'completed' ? 
+    'bg-green-500 text-white shadow-lg' : 
+    'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600')">
+    Completed
+  </button>
+</div>
+
+<!-- In Progress Container -->
+<div *ngIf="activeCategory === 'inprogress'" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
     <div class="flex justify-between items-center mb-4">
         <h3 class="text-2xl font-bold text-gray-800 dark:text-white">In Progress</h3>
         <!-- Show View All button only on dashboard -->
@@ -186,3 +209,100 @@
       </div>
     </div>
   </div>
+
+<!-- Completed Container -->
+<div *ngIf="activeCategory === 'completed' " class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+  <div class="flex justify-between items-center mb-4">
+    <div class="flex justify-between items-center w-full md:w-auto">
+      <h3 class="text-2xl font-bold text-gray-800 dark:text-white flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        Completed
+        <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-300 text-xs font-semibold px-3 py-1 rounded-full ml-3">7 Courses</span>
+      </h3>
+    </div>
+  </div>
+  
+  <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <!-- Completed Course Item 1 -->
+    <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md my-2 overflow-hidden hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
+         (click)="navigateToCompletedCourse('1')">
+      <div class="relative">
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" 
+            alt="Web Development Course" class="w-full h-36 object-cover">
+        <div class="absolute top-0 right-0 m-2 bg-blue-500 text-white text-xs px-2 py-1 rounded-full">
+          Web Development
+        </div>
+      </div>
+      <div class="p-3">
+        <div class="flex justify-between items-center">
+          <div>
+            <h4 class="text-base font-semibold text-gray-900 dark:text-white">Modern JavaScript</h4>
+            <p class="text-xs text-gray-600 dark:text-gray-300">By John Smith</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Completed Course Item 2 -->
+    <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md my-2 overflow-hidden hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
+         (click)="navigateToCompletedCourse('2')">
+      <div class="relative">
+        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" 
+            alt="Data Science Course" class="w-full h-36 object-cover">
+        <div class="absolute top-0 right-0 m-2 bg-purple-500 text-white text-xs px-2 py-1 rounded-full">
+          Data Science
+        </div>
+      </div>
+      <div class="p-3">
+        <div class="flex justify-between items-center">
+          <div>
+            <h4 class="text-base font-semibold text-gray-900 dark:text-white">Python for Data Analysis</h4>
+            <p class="text-xs text-gray-600 dark:text-gray-300">By Sarah Johnson</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Completed Course Item 3 -->
+    <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md my-2 overflow-hidden hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
+         (click)="navigateToCompletedCourse('3')">
+      <div class="relative">
+        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" 
+            alt="UI/UX Course" class="w-full h-36 object-cover">
+        <div class="absolute top-0 right-0 m-2 bg-green-500 text-white text-xs px-2 py-1 rounded-full">
+          Design
+        </div>
+      </div>
+      <div class="p-3">
+        <div class="flex justify-between items-center">
+          <div>
+            <h4 class="text-base font-semibold text-gray-900 dark:text-white">UI/UX Masterclass</h4>
+            <p class="text-xs text-gray-600 dark:text-gray-300">By Lisa Chen</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Completed Course Item 4 -->
+    <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md my-2 overflow-hidden hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
+         (click)="navigateToCompletedCourse('4')">
+      <div class="relative">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" 
+            alt="Marketing Course" class="w-full h-36 object-cover">
+        <div class="absolute top-0 right-0 m-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
+          Marketing
+        </div>
+      </div>
+      <div class="p-3">
+        <div class="flex justify-between items-center">
+          <div>
+            <h4 class="text-base font-semibold text-gray-900 dark:text-white">Digital Marketing</h4>
+            <p class="text-xs text-gray-600 dark:text-gray-300">By Alex Thompson</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
